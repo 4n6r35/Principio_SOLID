@@ -1,0 +1,11 @@
+html {
+    height: 100%;
+    background: linear-gradient(to left, #0F2027, #4B3F72);
+}
+
+.title {
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 250%;
+    font-weight: bold;
+}

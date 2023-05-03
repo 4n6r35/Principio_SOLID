@@ -1,0 +1,74 @@
+html {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+table {
+    width: 85%;
+    border-collapse: collapse;
+}
+
+.table_container {
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+thead {
+    background-color: #182db6;
+    height: 40px;
+    font-size: 0.9rem;
+    color: #FFFFFF;
+}
+
+.trb {
+    height: 30px;
+    background-color: #161616;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.bt {
+    width: 50px;
+    height: 30px;
+    margin: 5px;
+    border: 0px solid transparent;
+    border-radius: 5px;
+    background-repeat: no-repeat;
+    background-size: 50%;
+    background-position: 50% 50%;
+}
+
+.del {
+    background-color: #f31b1b;
+    background-image: url("./../../assets/delete.svg");
+}
+
+.del:hover {
+    background-color: #b70808;
+    cursor: pointer;
+}
+
+.edit {
+    background-color: #3c55f7;
+    background-image: url("./../../assets/edit.svg");
+}
+
+.edit:hover {
+    background-color: #1f22de;
+    cursor: pointer;
+}
+
+.funt {
+    width: 150px;
+    margin: 0;
+    padding: 0;
+}
+
+.add {
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    background-color: #12bf0f;
+    background-image: url("./../../assets/plus.svg");
+}

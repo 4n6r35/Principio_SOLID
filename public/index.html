@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/src/styles/page.css">
+    <link rel="stylesheet" href="../public/src/styles/table.css">
+    <link rel="stylesheet" href="../public/src/styles/dialogForm.css">
+    <title>CRUD</title>
+</head>
+
+<body>
+    <div>
+        <h1 class="title"> Registrar user</h1>
+    </div>
+
+    <div class="table_container">
+        <table id="table" class="table order-table">
+            <thead>
+                <tr class="tablet">
+                    <th scope="col" id="id"> ID </th>
+                    <th scope="col"> Nombre/Apellido </th>
+                    <th scope="col"> Fecha de nacimiento </th>
+                    <th scope="col"> Genero </th>
+                    <th scope="col" class="funt"> </th>
+                </tr>
+            </thead>
+            <tbody id="table_body"></tbody>
+        </table>
+        <div id="button_container"> <button id="btn_add" class="bt add" onclick="OpenDialogForm()"></div>
+    </div>
+
+    <dialog id="dialgoForm">
+        <form method="dialog" id="add_user">
+            <section>
+                <h1 class="titleF">Agregar usuario</h1>
+                <div class="in">
+                    <label> Nombre </label>
+                    <br>
+                    <input class="inputem" name="user_name" type="text">
+                    <br>
+                    <br>
+                    <label> Apellido </label>
+                    <br>
+                    <input class="inputem" name="user_lastname" type="text">
+                    <br>
+                    <br>
+                    <div class="Choose_date">
+                        <label> Fecha de nacimiento </label>
+                        <br>
+                        <input class="date" name="user_birthday" type="date">
+                        <br>
+                        <br>
+                    </div>
+                    <div class="Choose_gender">
+                        <label> Genero </label>
+                        <br>
+                        <select id="fav_gender" class="options" name="gender">
+                            <option value=""> Seleccione...</option>
+                            <option value="Masculino">Masculino</option>
+                            <option value="Femenino">Femenino</option>
+                        </select>
+                    </div>
+                    <input type="hidden" name="status" value="true">
+            </section>
+            <br>
+            <br>
+            <div class="buttons">
+                <button id="cancel" type="reset" class="custom_button">Salir</button>
+                <button type="submit" class="custom_button" id="user_add">Registrar</button>
+            </div>
+        </form>
+        </section>
+    </dialog>
+</body>
+<script src="../public/src/scripts/listarUsers.js"></script>
+<script src="../public/src/scripts/guardarUser.js"></script>
+<script src="../public/src/scripts/eliminarUser.js"></script>
+<script src="../public/src/components/dialogForm.js"></script>
+
+</html>

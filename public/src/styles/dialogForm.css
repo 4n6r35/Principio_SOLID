@@ -1,0 +1,91 @@
+dialog {
+    border-radius: 10px;
+    background-color: #111111;
+    border: 0px;
+    width: 30%;
+    padding: 30px;
+    color: #5c5c5c;
+    flex-direction: row;
+    flex: content;
+    align-items: center;
+    justify-content: center;
+}
+
+.titleF {
+    justify-content: center;
+    font-size: 24px;
+    text-align: center;
+}
+
+.in {
+    margin-top: 30px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.inputem {
+    padding-left: 20px;
+    outline: 1px;
+    color: #7e7e7e;
+    font-weight: 700;
+    border: 1px;
+    background-color: #252525;
+    border-radius: 5px;
+    width: 95%;
+    height: 50px;
+}
+
+.date {
+    padding-left: 10px;
+    margin-left: 5px;
+    border: 1px;
+    background-color: #252525;
+    border-radius: 5px;
+    width: 20%;
+    height: 30px;
+}
+
+.options {
+    padding-left: 10px;
+    margin-left: 5px;
+    border: 1px;
+    background-color: #252525;
+    border-radius: 5px;
+    width: 20%;
+    height: 30px;
+}
+
+.Choose_gender{
+    display: flex;
+    flex-direction: row;
+}
+
+.Choose_date {
+    display: flex;
+    flex-direction: row;
+}
+
+.custom_button {
+    border-radius: 50px;
+    width: 35%;
+    height: 40px;
+    font-weight: 900;
+    color: white;
+    background-color: #f63c3c;
+    border: 0px;
+    margin: 10px;
+}
+
+#user_add {
+    background-color: #005697;
+}
+
+.buttons {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex: content;
+    flex-direction: row;
+    width: 100%;
+}
