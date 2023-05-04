@@ -22,17 +22,17 @@ const createTable = (users = []) => {
     tableDataBody.innerHTML = ''
     users.forEach(user => {
         const html = `
-        <td scope="row" class="trb">${user.id_user}</td>        
+        <td scope="row" class="trb">${user.id}</td>        
         <td scope="row" class="trb">${user.name} ${user.lastname} </td>        
         <td scope="row" class="trb">${user.birthday}</td>        
         <td scope="row" class="trb">${user.gender}</td>        
         <td scope="row" class="trb">
             <button class="bt edit" />
-            <button class="bt del"  />
+            <button id="${user.id}" class="bt del" name="Eliminar" onclick="eliminarFila(${user.id})" />
         </td>
         `;
         const tr = document.createElement('tr')
-        tr.id = 'data_id'
+        tr.id = 'data-id-'+user.id
         tr.innerHTML = html;
         tableDataBody.appendChild(tr)
     })

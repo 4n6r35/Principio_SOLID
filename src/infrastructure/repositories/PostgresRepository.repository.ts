@@ -16,11 +16,21 @@ class PostgresRepository implements DatabaseRepository {
     }
 
     //*Obtener todos los usuarios registrados */
-    public async getDataUsers(): Promise<IUserEntity[]> {
-        const busqueda = await Models.User.findAll({
+    public async getDataUsers(params: {
+        page: number;
+        size: number;
+    }): Promise<{ count: number; rows: Array<IUserEntity> }> {
+        const busqueda = await Models.User.findAndCountAll({
             where: {
                 status: true
-            }
+            },
+            // attributes: [
+            //     "id_user"
+            // ],
+            // order: ["DESC"],
+            limit: params.size,
+            offset: params.page,
+
         });
         return busqueda;
     }

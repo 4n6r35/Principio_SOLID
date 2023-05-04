@@ -7,4 +7,5 @@ export interface UserDTO {
     birthday: Date
     gender: string
     status: boolean
+
 }

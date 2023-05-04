@@ -19,9 +19,17 @@ export class UserUseCase {
     }
 
     //-- Obtiene todos los usuarios --
-    public async getDataUser(): Promise<{ id_user: bigint, name: string, lastname: string, birthday: Date, gender: string, age: number }[]> {
-        const data = await this._userRepository.getDataUsers();
-        return data.map((user) => ({ id_user: user.id_user, name: user.user_name, lastname: user.user_lastname, birthday: user.user_birthday, gender: user.gender, age: user.user_age }))
+    public async getDataUser(params: {
+        page: number,
+        size: number;
+    }) {
+        // }): Promise<{ id_user: bigint, name: string, lastname: string, birthday: Date, gender: string, age: number }[]> {
+        const data = await this._userRepository.getDataUsers(params);
+        return {
+            count: data.count,
+            rows: UserMapper.toArrayDTOs(data.rows)
+        }
+        // return data.map((user) => ({ id_user: user.id_user, name: user.user_name, lastname: user.user_lastname, birthday: user.user_birthday, gender: user.gender, age: user.user_age }))
     }
 
     //-- Obtiene los usuarios por Id --

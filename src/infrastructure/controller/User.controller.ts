@@ -1,6 +1,8 @@
 import { Request, Response } from "express";
 import { UserUseCase } from "../../application/User.UseCase";
 import { UserDuplicateValues } from "../../domain/Exceptions/User.exeption";
+import { GetUsersRequest } from "../utils/requests/Requests.utils";
+import { GetUsersResponse } from "../utils/response/Response.until";
 
 
 
@@ -9,12 +11,49 @@ import { UserDuplicateValues } from "../../domain/Exceptions/User.exeption";
 class UserController {
     constructor(private userUseCase: UserUseCase) { }
 
-    public getDataUsers = async (req: Request, res: Response) => {
+    public getDataUsers = async (
+        req: GetUsersRequest,
+        res: GetUsersResponse
+    ): Promise<Response> => {
         try {
-            let dataUsers = await this.userUseCase.getDataUser();
+            const { page, size } = req.query;
+            let pagination = {
+                page: 0,
+                size: 10,
+            };
+
+            const pageAsNumber = Number.parseInt(page);
+            const sizeAsNumber = Number.parseInt(size);
+
+            if (!Number.isNaN(pageAsNumber) && pageAsNumber >= 0) {
+                pagination.page = pageAsNumber === 0 ? 0 : pageAsNumber - 1;
+            }
+
+            if (!Number.isNaN(sizeAsNumber) && sizeAsNumber > 0 && sizeAsNumber < 10) {
+                pagination.size = sizeAsNumber
+            }
+
+            pagination.page = pagination.page * pagination.size;
+
+            let users = [];
+            let countUserItems = 0;
+
+            const getUsers = await this.userUseCase.getDataUser({
+                page: pagination.page,
+                size: pagination.size,
+            });
+
+            const count_pages = Math.ceil(getUsers.count / pagination.size)
+
+            users = getUsers.rows;
+            countUserItems = getUsers.count;
+
+            // let dataUsers = await this.userUseCase.getDataUser();
             return res.json({
                 ok: true,
-                data: dataUsers
+                count_items: countUserItems,
+                count_pages,
+                data: users as any
             })
         } catch (error) {
             return res.status(500).json({

@@ -3,7 +3,10 @@ import { IUserEntity } from "../entities/User.entity";
 export interface UserRepository {
 
     /* Obtener la data de los usuarios*/
-    getDataUsers(): Promise<IUserEntity[]>
+    getDataUsers(params: {
+        page: number;
+        size: number;
+    }): Promise<{ count: number; rows: Array<IUserEntity> }>;
 
     /* Obtener la data de los usuario por el ID*/
     getDataUserbyID(params: {

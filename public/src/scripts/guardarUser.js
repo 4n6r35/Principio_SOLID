@@ -21,7 +21,7 @@ add_user.addEventListener("submit", async (event) => {
             body: JSON.stringify(data)
         })
         const dataRes = await res.json();
-        console.log(dataRes)
+        // console.log(dataRes)
         if (res.status != 200) {
             throw new Error(dataRes.msg)
         }
@@ -31,3 +31,7 @@ add_user.addEventListener("submit", async (event) => {
     }
     dialog.close();
 })
+
+
+
+
