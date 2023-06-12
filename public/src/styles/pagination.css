@@ -1,0 +1,26 @@
+.pagination_table {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagination_table>div {
+    margin: 10px 10px 0 10px;
+}
+
+.button_previous_page,
+.current_page,
+.button_next_page {
+    height: 30px;
+    width: 30px;
+    padding: 2px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.current_page {
+    background-color: #161616;
+}

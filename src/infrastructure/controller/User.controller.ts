@@ -83,7 +83,7 @@ class UserController {
     public createUser = async (req: Request, res: Response) => {
         const data = req.body;
         try {
-            const response = await this.userUseCase.createUser(data)
+            const response = await this.userUseCase.createUser(data);
             return res.json({
                 data: response
             })

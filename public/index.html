@@ -8,12 +8,13 @@
     <link rel="stylesheet" href="../public/src/styles/page.css">
     <link rel="stylesheet" href="../public/src/styles/table.css">
     <link rel="stylesheet" href="../public/src/styles/dialogForm.css">
+    <link rel="stylesheet" href="../public/src/styles/pagination.css">
     <title>CRUD</title>
 </head>
 
 <body>
     <div>
-        <h1 class="title"> Registrar user</h1>
+        <h1 class="title"> Registrar usuario</h1>
     </div>
 
     <div class="table_container">
@@ -30,6 +31,11 @@
             <tbody id="table_body"></tbody>
         </table>
         <div id="button_container"> <button id="btn_add" class="bt add" onclick="OpenDialogForm()"></div>
+    </div>
+    <div class="pagination_table">
+        <div id="button_previous_page" class="button_previous_page">⬅️</div>
+        <div id="current_page" class="current_page"></div>
+        <div id="button_next_page" class="button_next_page">➡️</div>
     </div>
 
     <dialog id="dialgoForm">
@@ -74,10 +80,54 @@
         </form>
         </section>
     </dialog>
+    <dialog id="updateDialgoForm">
+        <form method="dialog" id="update_user">
+            <section>
+                <h1 class="titleF">Actualizar usuario</h1>
+                <div class="in">
+                    <label> Nombre </label>
+                    <br>
+                    <input id="nup" class="inputem" name="user_name" type="text">
+                    <br>
+                    <br>
+                    <label> Apellido </label>
+                    <br>
+                    <input id="aup" class="inputem" name="user_lastname" type="text">
+                    <br>
+                    <br>
+                    <div class="Choose_date">
+                        <label> Fecha de nacimiento </label>
+                        <br>
+                        <input id="dup" class="date" name="user_birthday" type="date">
+                        <br>
+                        <br>
+                    </div>
+                    <div class="Choose_gender">
+                        <label> Genero </label>
+                        <br>
+                        <select id="fav_gender" class="options" name="gender">
+                            <option value="" selected="true"> Seleccione...</option>
+                            <option value="Masculino">Masculino</option>
+                            <option value="Femenino">Femenino</option>
+                        </select>
+                    </div>
+                    <input type="hidden" name="status" value="true">
+            </section>
+            <br>
+            <br>
+            <div class="buttons">
+                <button id="cancel_update" type="reset" class="custom_button">Salir</button>
+                <button type="submit" class="custom_button" id="user_updated">Actualizar</button>
+            </div>
+        </form>
+        </section>
+    </dialog>
 </body>
+<script src="../public/src/components/Elements.js"></script>
+<script src="../public/src/components/dialogForm.js"></script>
 <script src="../public/src/scripts/listarUsers.js"></script>
 <script src="../public/src/scripts/guardarUser.js"></script>
 <script src="../public/src/scripts/eliminarUser.js"></script>
-<script src="../public/src/components/dialogForm.js"></script>
+<script src="../public/src/scripts/editarUser.js"></script>
 
 </html>

@@ -50,6 +50,7 @@ class PostgresRepository implements DatabaseRepository {
         return GetUser as any
     }
 
+    //** Validar campos */
     public async validarUser(
         body: Partial<IUserEntity>,
         options: PartialNullable<{ transaction: any; }>
@@ -109,6 +110,7 @@ class PostgresRepository implements DatabaseRepository {
         return response as any
     }
 
+    //** Eliminar users */
     public async deleteUser(
         params: { id_user: number; },
         options: PartialNullable<{ transaction: any; }>

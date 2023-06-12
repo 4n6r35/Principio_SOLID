@@ -85,7 +85,7 @@ export class UserUseCase {
         const response = await this._transactionalRepository.inTransacion(async (transaction) => {
             const { id_user, ...data } = body;
 
-            //Validar que los campos sean iguales
+            //Validar que los campos no sean iguales
             const validators = await this._userRepository.validarUser({
                 ...data,
                 id_user: id_user
